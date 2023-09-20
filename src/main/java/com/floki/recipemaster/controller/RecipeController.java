@@ -49,7 +49,7 @@ public class RecipeController {
 
     @GetMapping("/api/recipes/queries")
     public ResponseEntity<Collection<RecipeDTO>> getRecipes(
-            @RequestParam(name = "query", required = false) String nameQuery,
+            @RequestParam(name = "name", required = false) String nameQuery,
             @RequestParam(name = "ingredient", required = false) String ingredient,
             @RequestParam(name = "categories", required = false) List<String> categories,
             @RequestParam(name = "servings", required = false) Integer servings,
