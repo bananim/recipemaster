@@ -17,6 +17,16 @@ For example, the API is able to handle the following search requests:
 - Maven version: 3.*
 - Spring Boot version: 2.4.1
 
+##How to run the service:
+
+1.Run the app using maven : mvn spring-boot:run
+   
+The application can be accessed at http://localhost:8080.
+
+2.Run the Springboot fat jar : java -jar documentdemo-0.0.1-SNAPSHOT.jar
+
+3.Run the docker image of the app : docker run -p 8080:8080 banani9/document_service_1.1.0
+
 ## API
 
 ### Recipes
