@@ -113,7 +113,7 @@ Case-sensitive.
 
 #### Get all recipes that contains the specified ingredient
 
-`GET /api/recipes?ingredient=<ingredient name>`
+`GET /api/recipes/queries?ingredient=<ingredient name>`
 
 The ingredient name must match exactly but case is ignored. `ingredient=Plain Flour` for example will not match 'Flour', but `ingredient=flour` will.
 
@@ -121,6 +121,22 @@ The ingredient name must match exactly but case is ignored. `ingredient=Plain Fl
 
 - `GET /api/recipes/queries?ingredient=Plain Flour`
 - `GET /api/recipes/queries?ingredient=flour`
+
+Case-sensitive Custom search.
+
+`GET /api/recipes?servings=<number of servings>&includeIngredient=<ingredient name>`
+
+##### Example
+
+- `GET /api/recipes?servings=4&includeIngredient=Milk`
+
+`GET /api/recipes?matchInstruction=<any text in instruction>&excludeIngredient=<ingredient name>`
+
+##### Example
+
+- `GET /api/recipes?matchInstruction=and&excludeIngredient=large egg`
+
+
 
 #### Update recipe
 
