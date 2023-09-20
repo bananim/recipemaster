@@ -90,7 +90,7 @@ __Request Body__:
 
 #### Get a single recipe by id
 
-`GET /api/recipes/<id>`
+`GET /api/recipes/{id}`
 
 #### Search recipes by name 
 
