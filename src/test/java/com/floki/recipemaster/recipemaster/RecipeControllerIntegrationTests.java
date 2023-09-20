@@ -36,7 +36,6 @@ public class RecipeControllerIntegrationTests extends IntegrationTest {
 
   @BeforeEach
   public void setup() {
-    // productsRepository.deleteAll();
     testData = getTestData();
   }
 
@@ -103,11 +102,7 @@ public class RecipeControllerIntegrationTests extends IntegrationTest {
         .content(mapper.writeValueAsString(updateRecipeDTO))).andDo(print()).andExpect(status().isOk());
 
     Recipe updatedRecord = recipeRepository.findById(actualRecord.getRecipeId()).get();
-    // assertFalse(new ReflectionEquals(actualRecord).matches(updatedRecord));
-    System.out.println("updated record" + updatedRecord);
-    System.out.println("updated record name " + updatedRecord.getRecipeName());
-    // assertFalse(updateRecipeDTO.getName().equals(actualRecord.getRecipeName()));
-    // assertTrue(updateRecipeDTO.getName().equals(updatedRecord.getRecipeName()));
+    assertEquals(updateRecipeDTO.getName(),updatedRecord.getRecipeName());
   }
 
   @Test
