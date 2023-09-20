@@ -140,7 +140,7 @@ Case-sensitive Custom search.
 
 #### Update recipe
 
-`PATCH /api/recipes/<id>`
+`PATCH /api/recipes/{id>}`
 
 __Request body__:
 ```
