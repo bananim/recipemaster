@@ -7,7 +7,7 @@ available recipes based on one or more of the following criteria:
 2. The number of servings
 3. Specific ingredient (either include or exclude)
 4. Text search within the instructions.
-For example, the API is able to handle the following search requests:
+For example, the API is able to handle the following search requests:  
 • All vegetarian recipes
 • Recipes that can serve 4 persons and have “potatoes” as an ingredient
 • Recipes without “salmon” as an ingredient that has “oven” in the instructions.
