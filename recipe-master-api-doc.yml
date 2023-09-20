@@ -1,3 +1,234 @@
-openapi: 3.0.3
+swagger: "2.0"
 info:
-  title: Swagger Petstore - OpenAPI 3.0
+  description: "Standalone java application which allows users to manage their favourite recipes. It allow adding, updating, removing and fetching recipes. Additionally users are able to filter available recipes based on one or more criteria"
+  version: "1.0.0"
+  title: "Swagger Recipemaster 2.0"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "recipemaster.swagger.io"
+basePath: "/api"
+tags:
+- name: "recipe"
+  description: "Everything about your Recipies"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "recipies"
+  description: "Access to Recipemaster recipies"
+  externalDocs:
+    description: "Find out more about our recipies"
+    url: "http://swagger.io"
+schemes:
+- "http"
+paths:
+  /recipe/queries:
+    get:
+      tags:
+       - "recipe queries"
+      summary: "Search for a recipe from the recipemaster application"
+      description: "Search recipe by query"
+      operationId: "getRecipeByQuery"
+      produces:
+      - "application/json"
+      parameters:
+       - $ref: "#/parameters/servings"
+       - $ref: "#/parameters/name"
+       - $ref: "#/parameters/ingredient"
+       - $ref: "#/parameters/categories"
+       - $ref: "#/parameters/matchInstruction"
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/recipe'
+        
+
+  /recipes:
+    post:
+      tags:
+      - "recipes"
+      summary: "Add a new recipe to the recipemaster application"
+      description: "Add a new recipe"
+      operationId: "addRecipe"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Recipe object that needs to be added to the recipemaster"
+        required: true
+        schema:
+          $ref: "#/definitions/recipe"
+      responses:
+        "200":
+          description: "Ok"
+        "500":
+          description: "Invalid input"
+    get:
+      tag:
+      - "recipes"
+      summary: Get recipes details
+      description: Get recipies details
+      produces:
+       - application/json
+      parameters:
+       - $ref: "#/parameters/servings"
+       - $ref: "#/parameters/includeIngredient"
+       - $ref: "#/parameters/matchInstruction"
+       - $ref: "#/parameters/excludeIngredient"
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/recipe'
+        404:
+          desctription: Not found
+    get/{id}:
+      tag:
+      - "recipes"
+      summary: Get recipes details for a ID
+      description: Get recipies details for a ID
+      produces:
+       - application/json
+      parameters:
+       - $ref: "#/parameters/id"
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/recipe'
+        404:
+          desctription: Not found
+    patch/{id}:
+      tag:
+      - "recipes"
+      summary:  Update recipe details for a ID
+      description: Update recipie details for a ID
+      produces:
+       - application/json
+      parameters:
+       - $ref: "#/parameters/id"
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/recipe'
+        404:
+          desctription: Not found
+    delete/{id}:
+      tag:
+      - "recipes"
+      summary:  Delete recipe details for a ID
+      description: Delete recipie details for a ID
+      produces:
+       - application/json
+      parameters:
+       - $ref: "#/parameters/id"
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/recipe'
+        404:
+          desctription: Not found
+
+
+parameters:
+  id:
+    name: "ID"
+    in: query
+    description: ID for the recipe
+    type: integer
+    format: int64
+  servings:
+    name: "servings"
+    in: query
+    description: Number of servings
+    type: integer
+    format: int64
+    maximum: 99999
+    minimum: 1
+  includeIngredient:
+    name: "includeIngredient"
+    in: query
+    description: includeIngredient
+    type: string
+  matchInstruction:
+    name: "matchInstruction"
+    in: query
+    description: matchInstruction
+    type: string
+    format:
+  excludeIngredient:
+    name: "excludeIngredient"
+    in: query
+    description: excludeIngredient
+    type: string
+  name:
+    name: "name"
+    in: query
+    description: recipe name
+    type: string
+  categories:
+    name: "categories"
+    in: query
+    description: category name
+    type: string
+  ingredient:
+    name: "ingredient"
+    in: query
+    description: ingredient name
+    type: string
+
+      
+definitions:
+  recipe:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        format: "Recipe name"
+      instructions:
+        type: "string"
+        format: "Recipe instructions"
+      servings:
+        type: "integer"
+        format: "int64"
+      ingredients:
+        type: "array"
+        items: 
+          $ref: "#/definitions/recipeIngredient"
+      category:
+        type: "object"
+        $ref: "#/definitions/recipeCategory"
+    
+  recipeIngredient:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      measurement:
+        enum:
+        - "DECILITER"
+        - "GRAM"
+        - "PIECES"
+        - "MILLILITER"
+        - "MILLIGRAM"
+        - "KILOGRAM"
+        - "LITER"
+      amount:
+        type: "number"
+        
+  recipeCategory:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      
+      
