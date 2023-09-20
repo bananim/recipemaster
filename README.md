@@ -8,9 +8,9 @@ available recipes based on one or more of the following criteria:
 3. Specific ingredient (either include or exclude)
 4. Text search within the instructions.
 For example, the API is able to handle the following search requests:  
-• All vegetarian recipes
-• Recipes that can serve 4 persons and have “potatoes” as an ingredient
-• Recipes without “salmon” as an ingredient that has “oven” in the instructions.
+• All vegetarian recipes  
+• Recipes that can serve 4 persons and have “potatoes” as an ingredient  
+• Recipes without “salmon” as an ingredient that has “oven” in the instructions.  
 
 ## Environment:
 - Java version: 11
@@ -19,9 +19,9 @@ For example, the API is able to handle the following search requests:
 
 ##How to run the service:
 
-1.Run the app using maven : mvn spring-boot:run
+1.From the root folder of the project run : mvn package spring-boot:repackage or mvn clean install  
    
-2.CD to the target folder of the project and run the Springboot fat jar : java -jar recipemaster-1.0.0-SNAPSHOT.jar
+2.CD to the target folder of the project and run the Springboot fat jar : java -jar recipemaster-1.0.0-SNAPSHOT.jar  
 
 The application can be accessed at http://localhost:8080
 
@@ -38,10 +38,9 @@ __Request body__:
 ```
 {
    "name": "<string>",
-   "instructions": "<string>",
-   "servings":"<Integer>",
-   "ingredients": [
-      {
+   "instructionsta":"<Integer>",
+   "innsgredients": [
+      a{
          "name": "<string>",
          "measurement": "<LITER|DECILITER|CENTILITER|KILOGRAM|GRAM|MILLIGRAM|PIECES>",
          "amount": <number>
