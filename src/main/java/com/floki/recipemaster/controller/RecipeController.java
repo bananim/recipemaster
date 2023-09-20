@@ -56,7 +56,7 @@ public class RecipeController {
             @RequestParam(name = "matchInstruction", required = false) String matchInstruction){
         if (invalidParamCombination(nameQuery, ingredient, categories, servings, matchInstruction)) {
             throw new InvalidParameterCombinationException(
-                    "Parameters 'query', 'ingredient', 'categories', 'servings', matchInstruction cannot be combined. " +
+                    "Parameters 'name', 'ingredient', 'categories', 'servings', matchInstruction cannot be combined. " +
                     "Please only specify one of them."
             );
         }

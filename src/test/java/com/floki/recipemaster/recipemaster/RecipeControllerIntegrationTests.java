@@ -77,9 +77,9 @@ public class RecipeControllerIntegrationTests extends IntegrationTest {
 
     Exception exception = assertThrows(NestedServletException.class, () -> {
       mvc.perform(
-          get("/api/recipes/queries?query=pasta&categories=vegetarian").contentType("application/content-json"));
+          get("/api/recipes/queries?name=pasta&categories=vegetarian").contentType("application/content-json"));
     });
-    String expectedMessage = "Parameters 'query', 'ingredient', 'categories', 'servings', matchInstruction cannot be combined. "
+    String expectedMessage = "Parameters 'name', 'ingredient', 'categories', 'servings', matchInstruction cannot be combined. "
         + "Please only specify one of them.";
     String actualMessage = exception.getMessage();
 
