@@ -94,11 +94,11 @@ __Request Body__:
 
 #### Search recipes by name 
 
-`GET /api/recipes/queries?query=<name query>`
+`GET /api/recipes/queries?name=<name query>`
 
 ##### Examples
 
-- `GET /api/recipes/queries?query=cake`
+- `GET /api/recipes/queries?name=cake`
 
 #### Get all recipes that is categorized by any of the specified categories
 
