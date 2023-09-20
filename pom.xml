@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.floki.recipemaster</groupId>
 	<artifactId>recipemaster</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.0-SNAPSHOT</version>
 	<name>recipemaster</name>
 	<description>Application to store recipes</description>
 	<properties>
