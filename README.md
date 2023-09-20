@@ -21,11 +21,10 @@ For example, the API is able to handle the following search requests:
 
 1.Run the app using maven : mvn spring-boot:run
    
-The application can be accessed at http://localhost:8080.
+2.CD to the target folder of the project and run the Springboot fat jar : java -jar recipemaster-1.0.0-SNAPSHOT.jar
 
-2.Run the Springboot fat jar : java -jar recipemaster-1.0.0-SNAPSHOT.jar
+The application can be accessed at http://localhost:8080
 
-3.Run the docker image of the app : docker run -p 8080:8080 banani9/document_service_1.1.0
 
 ## API
 
