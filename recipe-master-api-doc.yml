@@ -10,9 +10,8 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "recipemaster.swagger.io"
-basePath: "/api"
 tags:
-- name: "recipe"
+- name: "recipes"
   description: "Everything about your Recipies"
   externalDocs:
     description: "Find out more"
@@ -25,7 +24,7 @@ tags:
 schemes:
 - "http"
 paths:
-  /recipe/queries:
+  /api/recipes/queries:
     get:
       tags:
        - "recipe queries"
@@ -45,9 +44,11 @@ paths:
           description: Ok
           schema:
             $ref: '#/definitions/recipe'
+        500:
+          description: Invalid Parameter Combination Exception
         
 
-  /recipes:
+  /api/recipes:
     post:
       tags:
       - "recipes"
@@ -85,8 +86,8 @@ paths:
           schema:
             $ref: '#/definitions/recipe'
         404:
-          description: Not found
-  /recipe/{id}:
+          description: Not Found
+  /api/recipes/{id}:
     get:
       summary: Get recipes details for a ID
       produces:
