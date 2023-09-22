@@ -71,10 +71,7 @@ paths:
         "500":
           description: "Invalid input"
     get:
-      tag:
-      - "recipes"
       summary: Get recipes details
-      description: Get recipies details
       produces:
        - application/json
       parameters:
@@ -88,12 +85,10 @@ paths:
           schema:
             $ref: '#/definitions/recipe'
         404:
-          desctription: Not found
-    get/{id}:
-      tag:
-      - "recipes"
+          description: Not found
+  /recipe/{id}:
+    get:
       summary: Get recipes details for a ID
-      description: Get recipies details for a ID
       produces:
        - application/json
       parameters:
@@ -104,12 +99,9 @@ paths:
           schema:
             $ref: '#/definitions/recipe'
         404:
-          desctription: Not found
-    patch/{id}:
-      tag:
-      - "recipes"
+          description: Not Found
+    patch:
       summary:  Update recipe details for a ID
-      description: Update recipie details for a ID
       produces:
        - application/json
       parameters:
@@ -120,12 +112,9 @@ paths:
           schema:
             $ref: '#/definitions/recipe'
         404:
-          desctription: Not found
-    delete/{id}:
-      tag:
-      - "recipes"
+          description: Not Found
+    delete:
       summary:  Delete recipe details for a ID
-      description: Delete recipie details for a ID
       produces:
        - application/json
       parameters:
@@ -136,16 +125,17 @@ paths:
           schema:
             $ref: '#/definitions/recipe'
         404:
-          desctription: Not found
+          description: Not Found
 
 
 parameters:
   id:
-    name: "ID"
-    in: query
+    name: "id"
+    in: path
     description: ID for the recipe
     type: integer
     format: int64
+    required: true
   servings:
     name: "servings"
     in: query
@@ -164,7 +154,6 @@ parameters:
     in: query
     description: matchInstruction
     type: string
-    format:
   excludeIngredient:
     name: "excludeIngredient"
     in: query
