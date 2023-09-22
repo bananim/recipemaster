@@ -106,7 +106,14 @@ paths:
       produces:
        - application/json
       parameters:
-       - $ref: "#/parameters/id"
+      - $ref: "#/parameters/id"
+      - in: "body"
+        name: "body"
+        description: "Recipe object that needs to be updated to the recipemaster"
+        required: true
+        schema:
+          $ref: "#/definitions/recipe"
+      
       responses:
         200:
           description: Ok
